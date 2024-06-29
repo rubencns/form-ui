@@ -1,0 +1,33 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  border: var(--input-border);
+  box-sizing: border-box;
+  border-radius: var(--input-border-radius);
+  width: 100%;
+  height: var(--input-height);
+
+  &:focus-within {
+    border-color: var(--input-focus);
+  }
+
+  input {
+    padding: 0 var(--input-padding);
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: var(--input-border-radius);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .input-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--input-padding);
+    padding-right: 0;
+  }
+}
