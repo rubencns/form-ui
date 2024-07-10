@@ -1,5 +1,5 @@
 import { es } from "date-fns/locale";
-import { FC, useMemo, useState } from "react";
+import { FC, FocusEvent, useMemo, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './DateInput.css';
@@ -8,13 +8,14 @@ registerLocale("es", es);
 interface Props {
   id: string
   value: string
-  onChange: (date: string) => void
-  onBlur?: () => void
+  hasError?: boolean
   showTime?: boolean
+  onChange: (date: string) => void
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
 }
 
 const DateInput: FC<Props> = (props) => {
-  const { id, value, onChange, onBlur, showTime = false, } = props
+  const { id, value, hasError = false, showTime = false, onChange, onBlur } = props
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(value ? new Date(value) : null);
 
@@ -27,9 +28,16 @@ const DateInput: FC<Props> = (props) => {
     `dd/MM/yyyy${showTime ? ' HH:mm' : ''}`
     , [showTime])
 
+  const classNames = () => {
+    let classes = 'date-input'
+    if (hasError) classes += ' error'
+
+    return classes
+  }
+
   return (
     <DatePicker
-      className="date-input"
+      className={classNames()}
       id={id}
       name={id}
       selected={selectedDate}

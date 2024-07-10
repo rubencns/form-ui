@@ -10,7 +10,7 @@
   --input-color: #000;
   --input-focus: #0070f3;
   --neutral-00: #fff;
-  --error-message: red;
+  --error: red;
 }
 
 html {

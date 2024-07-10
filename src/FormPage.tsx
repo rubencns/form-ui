@@ -31,7 +31,7 @@ const FormPage: FC = () => {
   return (
     <div className="form-page">
       <header>
-        <h1>Form Page</h1>
+        <h1>Form</h1>
       </header>
       <FormLayout>
         <FormInput
@@ -54,6 +54,8 @@ const FormPage: FC = () => {
           form={form}
           options={options}
         />
+        // checkbox
+        // radio button
         <button type="submit" onClick={e => {
           e.preventDefault()
           form.handleSubmit()

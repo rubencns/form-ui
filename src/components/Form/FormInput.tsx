@@ -1,6 +1,7 @@
 import { FormProps } from "../../models/Form";
 import Input from "../Input/Input";
 import FormItemLayout from "./FormLayout/FormItemLayout/FormItemLayout";
+import { getFormInputError } from "./formUtils";
 
 interface Props extends FormProps { }
 
@@ -11,7 +12,7 @@ const FormInput = (props: Props) => {
     <FormItemLayout
       id={id}
       label={label}
-      errorMessage={(form.errors[id] && form.touched[id]) ? form.errors[id]?.toString() : undefined}
+      errorMessage={getFormInputError(id, form)}
       required={required}
     >
       <Input
@@ -19,6 +20,7 @@ const FormInput = (props: Props) => {
         value={form.values[id]}
         onChange={form.handleChange}
         onBlur={form.handleBlur}
+        hasError={!!getFormInputError(id, form)}
       />
     </FormItemLayout>
   )

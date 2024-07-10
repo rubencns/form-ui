@@ -12,10 +12,18 @@ interface Props {
 const FormItemLayout: FC<Props> = (props) => {
   const { id, label, errorMessage, required = false, children } = props
 
+
+  const labelClassNames = () => {
+    let classes = 'form-item-label'
+    if (errorMessage) classes += ' error'
+
+    return classes
+  }
+
   return (
     <div className="form-item-layout">
       {label &&
-        <label className="form-item-label" htmlFor={id}>{label}{required ? '*' : ''}
+        <label className={labelClassNames()} htmlFor={id}>{label}{required ? '*' : ''}
         </label>
       }
       {children}

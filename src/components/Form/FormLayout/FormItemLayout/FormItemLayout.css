@@ -7,11 +7,15 @@
   .form-item-label {
     text-align: left;
     margin-bottom: 0.3rem;
+
+    &.error {
+      color: var(--error);
+    }
   }
 
   .form-item-error {
     text-align: left;
     font-size: 0.75rem;
-    color: var(--error-message);
+    color: var(--error);
   }
 }

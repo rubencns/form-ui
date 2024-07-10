@@ -11,6 +11,10 @@
     border-color: var(--input-focus);
   }
 
+  &.error {
+    border-color: var(--error);
+  }
+
   input {
     padding: 0 var(--input-padding);
     height: 100%;

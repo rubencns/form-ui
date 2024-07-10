@@ -2,6 +2,7 @@ import { Option } from "../../models/Common";
 import { FormProps } from "../../models/Form";
 import Select from "../Select/Select";
 import FormItemLayout from "./FormLayout/FormItemLayout/FormItemLayout";
+import { getFormInputError } from "./formUtils";
 
 
 interface Props extends FormProps {
@@ -15,15 +16,19 @@ const FormSelect = (props: Props) => {
     <FormItemLayout
       id={id}
       label={label}
-      errorMessage={(form.errors[id] && form.touched[id]) ? form.errors[id]?.toString() : undefined}
+      errorMessage={getFormInputError(id, form)}
       required={required}
     >
       <Select
         id={id}
         value={form.values[id]}
         onChange={(value) => form.setFieldValue(id, value)}
-        onBlur={form.handleBlur}
+        onBlur={(e) => {
+          form.handleBlur(e)
+          form.setFieldTouched(id, true)
+        }}
         options={options}
+        hasError={!!getFormInputError(id, form)}
       />
     </FormItemLayout>
   )

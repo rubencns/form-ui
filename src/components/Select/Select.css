@@ -1,7 +1,11 @@
 .select-container {
   width: 100%;
 
-
+  &.error {
+    .select__control {
+      border-color: var(--error);
+    }
+  }
 
   .select__control {
     border-radius: var(--input-border-radius);
@@ -16,7 +20,6 @@
 
     .select__value-container {
       padding: 0 var(--input-padding);
-
 
       .select__single-value {
         font-family: var(--font-family);

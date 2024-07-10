@@ -11,6 +11,10 @@
       padding-right: 0;
       width: 100%;
 
+      &.error {
+        border-color: var(--error);
+      }
+
       &:focus-within {
         outline: none;
         border-color: var(--input-focus);

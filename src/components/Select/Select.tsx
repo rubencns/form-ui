@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FocusEvent } from "react";
 import ReactSelect from 'react-select';
 import { Option } from "../../models/Common";
 import './Select.css';
@@ -6,18 +6,26 @@ import './Select.css';
 interface Props {
   id: string
   value: string
-  onChange: (value: string) => void
-  onBlur?: () => void
   options: Option[]
-
+  hasError?: boolean
+  onChange: (value: string) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
 }
 
 const Select: FC<Props> = (props) => {
-  const { id, value, onChange, onBlur, options } = props
+  const { id, value, options, hasError = false, onChange, onBlur, } = props
+
+
+  const classNames = () => {
+    let classes = 'select-container'
+    if (hasError) classes += ' error'
+
+    return classes
+  }
 
   return (
     <ReactSelect
-      className="select-container"
+      className={classNames()}
       classNamePrefix="select"
       id={id}
       name={id}
