@@ -1,12 +1,8 @@
-import { FormikProps } from 'formik';
-
-export interface FormFields {
-  [key: string]: string;
-}
+import { FormikValues } from 'formik';
 
 export interface FormProps {
   id: string;
-  form: FormikProps<FormFields>;
+  form: FormikValues;
   label: string;
   required?: boolean;
 }

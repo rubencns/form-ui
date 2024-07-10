@@ -56,6 +56,7 @@ const FormPage: FC = () => {
         />
         // checkbox
         // radio button
+        // switch
         <button type="submit" onClick={e => {
           e.preventDefault()
           form.handleSubmit()

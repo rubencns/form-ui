@@ -1,11 +1,6 @@
-import { FormikErrors, FormikTouched } from "formik";
+import { FormikValues } from "formik";
 
-interface FormType {
-  errors: FormikErrors<{ [key: string]: string }>;
-  touched: FormikTouched<{ [key: string]: boolean }>;
-}
-
-export const getFormInputError = (id: string, form: FormType): string | undefined => {
+export const getFormInputError = (id: string, form: FormikValues): string | undefined => {
   return (form.errors[id] && form.touched[id])
     ? form.errors[id]?.toString()
     : undefined;
