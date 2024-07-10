@@ -1,0 +1,19 @@
+:root {
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --input-border-radius: 0.3rem;
+  --input-border: 1px solid #ccc;
+  --input-font-size: 1rem;
+  --input-padding: 0.875rem;
+  --input-height: 3.25rem;
+  --input-color: #000;
+  --input-focus: #0070f3;
+  --neutral-00: #fff;
+  --error: red;
+}
+
+
+input {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--input-color);
+}

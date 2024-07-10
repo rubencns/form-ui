@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import FormDateInput from "./components/Form/FormDateInput";
 import FormInput from "./components/Form/FormInput";
 import FormLayout from "./components/Form/FormLayout/FormLayout";
+import FormRowLayout from "./components/Form/FormLayout/FormRowLayout/FormRowLayout";
 import FormSelect from "./components/Form/FormSelect";
 import { options } from "./mock";
 
@@ -34,19 +35,21 @@ const FormPage: FC = () => {
         <h1>Form</h1>
       </header>
       <FormLayout>
-        <FormInput
-          id="textInput"
-          label="Text input"
-          required
-          form={form}
-        />
-        <FormDateInput
-          id="dateInput"
-          label="Date input"
-          required
-          form={form}
-          showTime
-        />
+        <FormRowLayout>
+          <FormInput
+            id="textInput"
+            label="Text input"
+            required
+            form={form}
+          />
+          <FormDateInput
+            id="dateInput"
+            label="Date input"
+            required
+            form={form}
+            showTime
+          />
+        </FormRowLayout>
         <FormSelect
           id="selectInput"
           label="Select input"
@@ -57,6 +60,7 @@ const FormPage: FC = () => {
         // checkbox
         // radio button
         // switch
+        // upload
         <button type="submit" onClick={e => {
           e.preventDefault()
           form.handleSubmit()

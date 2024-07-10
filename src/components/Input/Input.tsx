@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, FocusEvent, ReactNode } from "react";
-import '../Input.css';
+import './Input.css';
 
 interface Props {
   id: string
